@@ -1,0 +1,345 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mycompany</groupId>
+    <artifactId>semeru_jsf_maven</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>semeru_jsf_maven</name>
+
+    <properties>
+        <pring.version>3.0.5.RELEASE</pring.version>
+        <themes.version>1.0.8</themes.version>
+        <jsf.version>2.1.7</jsf.version>
+        <jstl.version>1.2</jstl.version>
+        <mysql.version>5.1.9</mysql.version>
+        <groovy-all.version>1.7.5</groovy-all.version>
+        <hibernate.version>4.0.1.Final</hibernate.version>
+        <slf4j.version>1.6.4</slf4j.version>
+        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <repositories>
+        
+    <!-- PRIMEFACES REPOSITORY -->
+    <repository>
+        <id>prime-repo</id>
+        <name>PrimeFaces Maven Repository</name>
+        <url>http://repository.primefaces.org</url>
+        <layout>default</layout>
+    </repository>
+    
+    <!-- FACELETS TAGRIBRARIES REPOSITORY -->
+    <repository>
+        <id>org.springframework.security.tagliba.facelets</id>
+        <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
+     </repository>
+
+    <!-- GROOVY-ALL REPOSITORY -->
+    <repository>
+        <id>codehaus.org</id>
+        <url>http://repository.codehaus.org</url>
+     </repository>
+
+    <!-- NAKED OBJECTS -->
+    <repository>
+        <id>no-snapshotsd</id>
+        <url>http://nakedobjects.sourceforge.net/m2-repo/snapshot/</url>
+     </repository>
+
+    <!-- MAVEN REPOSITORY -->
+    <repository>
+        <id>mvn-repository</id>
+        <url>http://mvnrepository.com/</url>
+     </repository>
+
+    <!-- MAVEN SEARCH REPOSITORY -->
+    <repository>
+        <id>mavensearch</id>
+        <url>http://www.mvnsearch.org/maven2</url>
+     </repository>
+
+    <!-- SPRING REPOSITORY -->
+    <repository>
+        <id>com.springsource.repository.bungles.release</id>
+        <name>EBR Spring Release Repositoy</name>
+        <url>http://repositoy.springsource.com/maven/bungles/release</url>
+     </repository>
+
+    <!-- SPRING REPOSITORY -->
+    <repository>
+        <id>com.springsource.repository.bungles.external</id>
+        <name>EBR External Release Repositoy</name>
+        <url>http://repositoy.springsource.com/maven/bungles/external</url>
+     </repository>
+
+    <!-- JBOSS REPOSITORY -->
+    <repository>
+        <id>jboss-repository</id>
+        <url>http://repositoy.jboss.org/nexus/content/repositories/</url>
+     </repository>
+
+    <!-- JBOSS REPOSITORY -->
+    <repository>
+        <id>JBoss Repo</id>
+        <url>http://repositoy.jboss.com</url>
+     </repository>
+
+    <!-- GOOGLE REPOSITORY -->
+    <repository>
+        <id>google-repository</id>
+        <url>http://google-maven-repository.googlecod.com/svn/repository/</url>
+     </repository>
+
+    <!-- GLASSFISH REPOSITORY -->
+    <repository>
+        <id>glassfish-repository</id>
+        <url>http://download.java.net/maven/glassfish/</url>
+     </repository>
+
+    <!-- REPO2 REPOSITORY -->
+    <repository>
+        <id>repo2</id>
+        <url>http://repo2.maven.org/maven2</url>
+     </repository>
+
+    <!-- SPRING MAVEN MILESTONE -->
+    <repository>
+        <id>org.springframework.maven.milestone</id>
+        <name>Spring Maven Milestone Repository</name>
+        <url>http://maven.springframework.org/milestone</url>
+     </repository>
+
+    <!-- REPOSITÓRIO DA AOP ALLIANCE -->
+    <repository>
+        <id>spring-ext</id>
+        <name>Spring External Dependencies Repository</name>
+        <url>http://svn.sourceforge.net/svnroot/springframework/repos/repo-ext/</url>
+     </repository>
+
+    <!-- REPOSITÓRIO DO JASPER REPORTS -->
+    <repository>
+        <id>jasperreports</id>
+        <url>http://repol.maven.org/maven2/</url>
+     </repository>
+
+    </repositories>
+
+
+     <dependencies>
+         
+    <!-- ********** HIBERNATE ANTLR ******************** -->
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <type>jar</type>
+            <version>2.7.7</version>
+        </dependency>             
+         
+    <!-- ********** COMMONS-COLLECTIONS ******************** -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <type>jar</type>
+            <version>3.2.1</version>
+        </dependency>             
+         
+    <!-- ********** DOM4J ******************** -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <type>jar</type>
+            <version>1.6.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>xml-apis</artifactId>
+                    <groupId>xml-apis</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>             
+         
+    <!-- ****** HIBERNATE-COMMONS-ANNOTATIONS ******************** -->
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <type>jar</type>
+            <version>${hibernate.version}</version>
+        </dependency>             
+         
+    <!-- ********** HIBERNATE-JPA ******************** -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <type>jar</type>
+            <version>1.0.1.Final</version>
+        </dependency>            
+         
+ <!-- ********** JAVASSIST ******************** -->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <type>jar</type>
+            <version>3.15.0-GA</version>
+        </dependency>         
+         
+ <!-- ********** JBOSS-LOGGING ******************** -->
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <type>jar</type>
+            <version>3.1.0.CR2</version>
+        </dependency>         
+         
+ <!-- ********** JBOSS-TRANSACTION-API ******************** -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.1_spec</artifactId>
+            <type>jar</type>
+            <version>1.0.1.Final</version>
+        </dependency>          
+         
+     <!-- ********** JPA-HIBERNATE-ENTITYMANAGER ******************** -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>          
+         
+     <!-- ********** HIBERNATE-EHCACHE ******************** -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>          
+
+     <!-- ********** EHCACHE-CORE ******************** -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <type>jar</type>
+            <version>2.4.3</version>
+        </dependency>                   
+
+     <!-- ********** DEPENDENCIA DO JAVAX-PERSISTENCE ******************** -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency>          
+         
+     <!-- ********** DEPENDENCIA DO MYSQL DRIVER ******************** -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>            
+                  
+        <!-- ********** DEPENDENCIA DO J-UNIT ******************** -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>        
+         
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- || DEPENDENCIAS DO JAVA SERVER FACESS || -->
+        <!-- ********** JSF-API ********************* -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${jsf.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- ********** JSF-IMPL ********************* -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
+                        
+         <!-- ********** JSTL ********************* -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+         <!-- ********** SERVLET-API ********************* -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0-alpha-1</version>
+        </dependency>
+
+           <!-- ********** JSP-API ********************* -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+                            
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
