@@ -1,4 +1,4 @@
-package br.com.semeru.model.etibes;
+package br.com.semeru.model.etities;
 
 import java.io.Serializable;
 import java.util.Date;
